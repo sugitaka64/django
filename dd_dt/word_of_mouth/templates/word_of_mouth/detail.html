@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <title>クチコミ詳細</title>
+</head>
+<body>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">ID</th><td>{{ comment.id }}</td>
+      </tr>
+      <tr>
+        <th scope="row">企業ID</th><td>{{ comment.company_id }}</td>
+      </tr>
+      <tr>
+        <th scope="row">クチコミ</th><td width="90%">{{ comment.comment }}</td>
+      </tr>
+      <tr>
+        <th scope="row">評価</th><td>{{ comment.raiting }}</td>
+      </tr>
+      <tr>
+        <th scope="row">投稿ID</th><td>{{ comment.review_id }}</td>
+      </tr>
+      <tr>
+        <th scope="row">投稿日</th><td>{{ comment.post_date|date:"Y年m月d日" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

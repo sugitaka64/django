@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <title>クチコミ一覧</title>
+</head>
+<body>
+  {% if latest_lists %}
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col" width="60%">クチコミ</th>
+        <th scope="col">評価</th>
+        <th scope="col">投稿日</th>
+        <th scope="col">ポジネガスコア</th>
+        <th scope="col">ポジネガ重要度</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for latest_list in latest_lists %}
+        <tr>
+          <td><a href="{% url 'word_of_mouth:detail' latest_list.comment__id %}">{{ latest_list.comment__id }}</td>
+          <td>{{ latest_list.comment__comment }}</td>
+          <td>
+            {% if latest_list.comment__raiting is None %}
+              なし
+            {% else %}
+              {{ latest_list.comment__raiting }}
+            {% endif %}
+          </td>
+          <td>{{ latest_list.comment__post_date|date:"Y年m月d日" }}</td>
+          <td>{{ latest_list.score }}</td>
+          <td>{{ latest_list.magnitude }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No comments are available.</p>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,10 @@
+__pycache__
+.DS_Store
+derby.log
+metastore_db
+ghostdriver.log
+Pipfile.lock
+databases.json
+secret_key.json
+dd_dt/word_of_mouth/migrations/*
+!dd_dt/word_of_mouth/migrations/__init__.py
